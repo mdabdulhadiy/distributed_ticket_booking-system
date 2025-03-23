@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Ticket</title>
+</head>
+<body>
+
+<h1>Search for Ticket</h1>
+
+
+<form action="/searchTicket" method="get">
+    <label for="ticketId">Enter Ticket ID:</label>
+    <input type="text" id="ticketId" name="ticketId" required>
+    <button type="submit">Search</button>
+</form>
+
+
+<div th:if="${ticket != null}">
+    <h2>Ticket Details</h2>
+    <p><strong>Ticket ID:</strong> <span th:text="${ticket.ticketId}"></span></p>
+    <p><strong>From:</strong> <span th:text="${ticket.from}"></span></p>
+    <p><strong>To:</strong> <span th:text="${ticket.to}"></span></p>
+    <p><strong>Status:</strong> <span th:text="${ticket.status}"></span></p>
+    <p><strong>Train Number:</strong> <span th:text="${ticket.trainNum}"></span></p>
+    <p><strong>Cost:</strong> <span th:text="${ticket.cost}"></span></p>
+</div>
+
+
+<div th:if="${ticket == null}">
+    <p>No ticket details available for the given Ticket ID.</p>
+</div>
+
+<a href="/" > Go back </a>
+</body>
+</html>
